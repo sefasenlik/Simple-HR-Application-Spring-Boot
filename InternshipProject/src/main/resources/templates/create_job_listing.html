@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Create a Job Listing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css">  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"> 
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}" />
+</head>
+<body>            
+    <center><div class="maindiv">
+    	<h1>Please provide details.</h1>
+        <form action="#" th:action="@{/joblisting}" th:object="${joblisting}" method="post" class="ui form">
+            <p>Job Title: <input type="text" th:field="*{jobTitle}" required/></p> 
+            <p>Job Description: <input type="text" th:field="*{jobDescription}" required/></p>
+            <p>Number of People: <input type="text" th:field="*{numberOfPeople}" required/></p>
+            <p>Last Application Date: <input type="text" th:field="*{lastDate}" required/></p>
+            <p><input type="submit" value="Submit" class="ui secondary button"/> <input type="reset" value="Reset" class="ui secondary button"/></p>
+        </form>
+        <p><a href="/alljobs" class="ui button">View all job listings</a></p>
+    </div></center>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>View the Job Listing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"> 
+    <link rel="stylesheet" type="text/css" th:href="@{../style.css}" />
+</head>
+<body>
+    <center><div class="maindiv">
+    	<h1>You can view the job listing below</h1>    
+        <p th:text="'ID: ' + ${jobListing.id}" />
+        <p th:text="'Job Title: ' + ${jobListing.jobTitle}" />
+        <p th:text="'Job Description: ' + ${jobListing.jobDescription}" />
+        <p th:text="'Number of People: ' + ${jobListing.numberOfPeople}" />
+        <p th:text="'Last Application Date: ' + ${jobListing.lastDate}" />
+        <p> <a th:href="@{/apply/{id}(id=${jobListing.id})}" class="ui secondary button">Apply!</a> </p>
+        <p> <a href="/user-alljobs" class="ui button">View all job listings</a> </p>
+    </div></center>
+</body>
+</html>

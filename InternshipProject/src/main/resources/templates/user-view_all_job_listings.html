@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>View Job Listings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css">  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"> 
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}" />
+</head>
+<body>
+    <center><div class="maindiv">
+  	<h1>You can view the job listings below</h1>    
+      <table class="ui celled table">
+          <thead>
+              <tr>
+                  <th> ID </th>
+                  <th> Title </th>
+                  <th> Actions </th>
+              </tr>
+          </thead>
+          <tbody>  
+              <tr th:if="${jobs.empty}">
+                  <td colspan="3"> No Job Listings Available </td>
+              </tr>
+              <tr th:each="job : ${jobs}">
+                  <td><span th:text="${job.id}"> ID </span></td>
+                  <td><span th:text="${job.jobTitle}"> Title </span></td>
+                  <td>
+                      <a th:href="@{/user-joblisting/{id}(id=${job.id})}"  class="ui button">
+                          <i class="fas fa-user-edit ml-2">View Details</i>
+                      </a>   
+                  </td>                                                                   
+              </tr>
+          </tbody>
+      </table>
+    </div></center>
+</body>
+</html>

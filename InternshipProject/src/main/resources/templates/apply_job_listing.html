@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Apply to a Job Listing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css">  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"> 
+    <link rel="stylesheet" type="text/css" th:href="@{../style.css}" />
+</head>
+<body>
+    <center><div class="maindiv">
+    	<h1>Please provide details</h1>
+        <h2>Job to be applied</h2>
+        <p>This section is for you to review the job listing one more time before application,<br> <b>you do not need to edit details.</b></p>
+        <form action="#" th:action="@{/apply}" th:object="${joblisting}" method="post" class="ui form">
+            <p>Job ID: <input type="text" th:field="*{id}" readonly/></p>       
+            <p>Job Title: <input type="text" th:field="*{jobTitle}" readonly/></p> 
+            <p>Job Description: <input type="text" th:field="*{jobDescription}" readonly/></p>
+            <p>Number of People: <input type="text" th:field="*{numberOfPeople}" readonly/></p>
+            <p>Last Application Date: <input type="text" th:field="*{lastDate}" readonly/></p>     
+        </form>
+        <h2>Applicant information</h2>
+        <p>Please fill all the fields,<br> your resumé file name format should be <b>"yournamesurname_joblistingID.pdf"</b>.</p>
+        <form action="#" th:action="|@{/apply}/${joblisting.id}|" th:object="${jobapplication}" enctype="multipart/form-data" method="post" class="ui form">
+            <p>Name: <input type="text" th:field="*{name}" required/></p> 
+            <p>E-Mail: <input type="text" th:field="*{eMail}" required/></p>
+            <p>Phone: <input type="text" th:field="*{phone}" required/></p>         
+            <p>Thoughts on Job: <input type="text" th:field="*{thoughts}" required/></p>
+            <p>Resume: <input type="file" name="file" required/></p>                   
+            <p><input type="submit" value="Submit" class="ui secondary button"/> <input type="reset" value="Reset" class="ui secondary button"/></p>
+        </form>     
+        <p><a href="/user-alljobs" class="ui button">Return to job listings page</a></p>  
+    </div></center>
+</body>
+</html>

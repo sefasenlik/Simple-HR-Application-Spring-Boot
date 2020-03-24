@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>View Job Applications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css">  
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"> 
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}" />
+</head>
+<body>
+    <center><div class="maindiv">
+	   <h1>You can view the job applications below</h1>    
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>  
+                <tr th:if="${jobApplications.empty}">
+                    <td colspan="3"> No Job Applications Available </td>
+                </tr>
+                <tr th:each="jobApplication : ${jobApplications}">
+                    <td><span th:text="${jobApplication.id}"> ID </span></td>
+                    <td><span th:text="${jobApplication.name}"> Name </span></td>
+                    <td>
+                        <a th:href="@{/allapplications/{id}(id=${jobApplication.id})}" class="ui button">
+                            <i>View Details</i>
+                        </a>   
+                    </td>                                                                   
+                </tr>
+            </tbody>
+        </table>
+        <a href="/hub" class="ui button">Go back</a>
+    </div></center>
+</body>
+</html>
