@@ -50,7 +50,9 @@ public class InternshipProjectApplication {
         log.info(jobListing.toString());
       }
       log.info("-------------------------------");
-
+      
+      /*
+       * FOR TEST PURPOSES ONLY 
       // fetch all jobApplications
       log.info("Job application found with findAll():");
       log.info("-------------------------------");
@@ -58,28 +60,14 @@ public class InternshipProjectApplication {
         log.info(jobApplication.toString());
       }
       log.info("-------------------------------");
-      
-      /*
-       * FOR TEST PURPOSES ONLY 
+
       // fetch an individual jobListing by ID
       JobListing jobListing  = repository.findById(1L);
       log.info("Job listing found with findById(1L):");
       log.info("--------------------------------");
       log.info(jobListing.toString());
       log.info("");
-
-      // fetch jobListings by last name
-      log.info("Job listing found with findByJobTitle('HR Manager'):");
-      log.info("--------------------------------------------");
-      repository.findByJobTitle("HR Manager").forEach(hr -> {
-        log.info(hr.toString());
-      });
-      // for (JobListing hr : repository.findByJobTitle('HR Manager')) {
-      //  log.info(hr.toString());
-      // }
       */
-      
-      log.info("");
     };
   }
 
