@@ -1,7 +1,7 @@
 
 # Simple-HR-Application-Spring-Boot
 
-*InternshipApplication* folder contains the assignment, **Simple HR Application** required for KodGemisi internship application process.\
+*InternshipProject* folder contains the assignment, **Simple HR Application** required for KodGemisi internship application process.\
 This application is created using **Spring Boot framework**, its services and libraries, **Thymeleaf** and **Semantic UI** libraries. Also, custom **CSS** files are used for basic styling. Being a **Maven project**, all properties and dependencies can be found in "pom.xml" file.
 
 ### Login Info
